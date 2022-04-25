@@ -1,4 +1,4 @@
-package com.afd.mate.mate;
+package com.afd.mate;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

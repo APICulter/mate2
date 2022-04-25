@@ -1,4 +1,4 @@
-package com.afd.mate.mate;
+package com.afd.mate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

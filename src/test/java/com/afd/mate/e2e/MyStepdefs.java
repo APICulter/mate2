@@ -1,3 +1,5 @@
+package com.afd.mate.e2e;
+
 import com.afd.mate.domain.service.EventRepository;
 import io.cucumber.java.en.Given;
 import org.springframework.beans.factory.annotation.Autowired;

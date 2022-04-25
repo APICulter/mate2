@@ -1,2 +1,4 @@
-package com.afd.mate.domain.model;public class Location {
+package com.afd.mate.domain.model;
+
+public class Location {
 }

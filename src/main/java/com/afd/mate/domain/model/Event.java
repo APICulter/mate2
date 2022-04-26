@@ -15,7 +15,7 @@ public class Event {
     private Location location;
     private String category;
     private String flag;
-    private Boolean state;
+    private String state;
     private int numberOfPlace;
     private String description;
     private String photo;

@@ -3,9 +3,9 @@ Feature: Recuperer la liste des evenements
 
   Scenario Outline: Recuperer la liste des evenements
     Given une base de donnée ne contenant aucun Evenement existe
-#    And un Evenement1 avec les informations suivantes existe
-#      | titleEvenement          | startDateEvenement          | endDateEvenement          | locationEvenement         | categoryEvenement         | flagEvenement         | stateEvenement          | nbOfPlacesEvenement         | descriptionEvenement          | photoPreEventEvenement          |
-#      | <valueTitleEvenement1>  | <valueStartDateEvenement1>  | <valueEndDateEvenement1>  | <valueLocationEvenement1> | <valueCategoryEvenement1> | <valueFlagEvenement1> | <valueStateEvenement1>  | <valueNbOfPlacesEvenement1> | <valueDescriptionEvenement1>  | <valuePhotoPreEventEvenement1>  |
+    And un Evenement1 avec les informations suivantes existe
+      | titleEvenement          | startDateEvenement          | endDateEvenement          | locationEvenement         | categoryEvenement         | flagEvenement         | stateEvenement          | nbOfPlacesEvenement         | descriptionEvenement          | photoPreEventEvenement          |
+      | <valueTitleEvenement1>  | <valueStartDateEvenement1>  | <valueEndDateEvenement1>  | <valueLocationEvenement1> | <valueCategoryEvenement1> | <valueFlagEvenement1> | <valueStateEvenement1>  | <valueNbOfPlacesEvenement1> | <valueDescriptionEvenement1>  | <valuePhotoPreEventEvenement1>  |
 #    And un Organisateur1 avec les informations suivantes existe
 #      | lastNameOrganisateur          | firstNameOrganisateur         | emailOrganisateur         |
 #      | <valueLastNameOrganisateur1>  | <valueFirstNameOrganisateur1> | <valueEmailOrganisateur1> |

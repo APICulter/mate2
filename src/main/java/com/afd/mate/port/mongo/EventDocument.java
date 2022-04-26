@@ -1,4 +1,4 @@
-package com.afd.mate.domain.mongo;
+package com.afd.mate.port.mongo;
 
 import com.afd.mate.domain.model.Event;
 import lombok.AllArgsConstructor;

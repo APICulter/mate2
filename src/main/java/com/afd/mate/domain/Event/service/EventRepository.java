@@ -1,7 +1,6 @@
-package com.afd.mate.domain.service;
+package com.afd.mate.domain.Event.service;
 
 import com.afd.mate.domain.model.Event;
-import com.afd.mate.domain.mongo.EventDocument;
 import reactor.core.publisher.Mono;
 
 public interface EventRepository {

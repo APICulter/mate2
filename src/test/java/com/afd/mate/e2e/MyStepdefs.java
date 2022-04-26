@@ -39,8 +39,8 @@ public class MyStepdefs {
 //
 //    }
 
-    @And("un Evenement1 avec les informations suivantes existe")
-    public void unEvenementAvecLesInformationsSuivantesExiste(DataTable table) {
+    @And("un Evenement{int} avec les informations suivantes existe")
+    public void unEvenementAvecLesInformationsSuivantesExiste(int argo, DataTable table) {
         EventMapper eventMapper = new EventMapper();
         evenement1 = eventMapper.map(table.asMaps(String.class, String.class));
         System.out.println(evenement1);

@@ -4,16 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Event {
     private String title;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private String startDate;
+    private String endDate;
     private String location;
     private String category;
     private String flag;
@@ -21,4 +20,6 @@ public class Event {
     private int numberOfPlace;
     private String description;
     private String photo;
+    private List<Organizer> organizerList;
+    private List<Guest> guestList;
 }

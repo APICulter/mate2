@@ -10,9 +10,9 @@ Feature: Recuperer la liste des evenements
       | lastNameOrganisateur          | firstNameOrganisateur         | emailOrganisateur         |
       | <valueLastNameOrganisateur1>  | <valueFirstNameOrganisateur1> | <valueEmailOrganisateur1> |
     And une liste1 de Organisateurs contient le Organisateur1
-#    And la liste1 de Organisateurs existe dans Evenement1
-#    And une liste2 vide de Participants existe
-#    And la liste2 de Participants existe dans Evenement1
+    And la liste1 de Organisateurs existe dans Evenement1
+    And une liste2 vide de Participants existe
+    And la liste2 de Participants existe dans Evenement1
 #    And une liste3 vide de Photos post event existe
 #    And la liste3 de Photos post event existe dans Evenement1
 #    And une liste4 vide de Reactions existe

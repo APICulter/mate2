@@ -6,10 +6,10 @@ Feature: Recuperer la liste des evenements
     And un Evenement1 avec les informations suivantes existe
       | titleEvenement          | startDateEvenement          | endDateEvenement          | locationEvenement         | categoryEvenement         | flagEvenement         | stateEvenement          | nbOfPlacesEvenement         | descriptionEvenement          | photoPreEventEvenement          |
       | <valueTitleEvenement1>  | <valueStartDateEvenement1>  | <valueEndDateEvenement1>  | <valueLocationEvenement1> | <valueCategoryEvenement1> | <valueFlagEvenement1> | <valueStateEvenement1>  | <valueNbOfPlacesEvenement1> | <valueDescriptionEvenement1>  | <valuePhotoPreEventEvenement1>  |
-#    And un Organisateur1 avec les informations suivantes existe
-#      | lastNameOrganisateur          | firstNameOrganisateur         | emailOrganisateur         |
-#      | <valueLastNameOrganisateur1>  | <valueFirstNameOrganisateur1> | <valueEmailOrganisateur1> |
-#    And une liste1 de Oragnisateurs contient le Organisateur1
+    And un Organisateur1 avec les informations suivantes existe
+      | lastNameOrganisateur          | firstNameOrganisateur         | emailOrganisateur         |
+      | <valueLastNameOrganisateur1>  | <valueFirstNameOrganisateur1> | <valueEmailOrganisateur1> |
+    And une liste1 de Organisateurs contient le Organisateur1
 #    And la liste1 de Organisateurs existe dans Evenement1
 #    And une liste2 vide de Participants existe
 #    And la liste2 de Participants existe dans Evenement1

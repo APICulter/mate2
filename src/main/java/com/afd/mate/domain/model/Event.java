@@ -12,7 +12,7 @@ public class Event {
     private String title;
     private Date startDate;
     private Date endDate;
-    private Location location;
+    private String location;
     private String category;
     private String flag;
     private String state;

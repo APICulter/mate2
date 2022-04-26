@@ -2,8 +2,6 @@ package com.afd.mate.e2e;
 
 import com.afd.mate.domain.Event.service.EventRepository;
 import com.afd.mate.domain.model.Event;
-import com.afd.mate.domain.model.Location;
-import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +31,7 @@ public class MyStepdefs {
         evenement.setTitle("titleEvenement1");
         evenement.setStartDate(new Date());
         evenement.setEndDate(new Date());
-        evenement.setLocation(new Location("13 rue des satellites"));
+        evenement.setLocation("13 rue des satellites");
         evenement.setCategory("LINKERS");
         evenement.setState("TODO");
         evenement.setPhoto("photo");

@@ -120,4 +120,9 @@ public class MyStepdefs {
     public void laListeDeRegionsExisteDansEvenement(int arg0, int arg1) {
         events.get(arg1).setRegions(regionList.get(arg0));
     }
+
+    @And("le Evenement{int} existe en base de donnee")
+    public void leEvenementExisteEnBaseDeDonnee(int arg0) {
+       repository.findOneById(events.get(arg0).get);
+    }
 }

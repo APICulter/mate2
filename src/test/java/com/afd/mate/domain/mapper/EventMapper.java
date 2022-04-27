@@ -1,4 +1,4 @@
-package com.afd.mate.domain.model.mapper;
+package com.afd.mate.domain.mapper;
 
 
 import com.afd.mate.domain.model.Event;

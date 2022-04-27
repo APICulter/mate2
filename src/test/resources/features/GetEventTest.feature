@@ -20,8 +20,8 @@ Feature: Recuperer la liste des evenements
     And une liste5 vide de Regions existe
     And la liste5 de Regions existe dans Evenement1
     And le Evenement1 existe en base de donnee
-#    When la liste des Evenements est recuperee
-#    Then une liste de Evenements est renvoyee
+    When la liste des Evenements est recuperee
+    Then une liste de Evenements est renvoyee
 #    And la liste de Evenements renvoyee contient un unique Evenement
 #    And le premier Evenement de la liste de Evenements renvoyee possede les memes informations que Evenement1
 #    And le premier Evenement de la liste de Evenements renvoyee possede un identifiant

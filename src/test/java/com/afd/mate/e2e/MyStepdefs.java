@@ -1,18 +1,22 @@
 package com.afd.mate.e2e;
 
 import com.afd.mate.domain.Event.service.EventRepository;
+import com.afd.mate.domain.Event.service.GetEventService;
 import com.afd.mate.domain.enumeration.REACTION;
 import com.afd.mate.domain.enumeration.REGION;
 import com.afd.mate.domain.model.Event;
 import com.afd.mate.domain.model.Guest;
 import com.afd.mate.domain.model.Organizer;
 import com.afd.mate.domain.model.Photo;
-import com.afd.mate.domain.model.mapper.EventMapper;
-import com.afd.mate.domain.model.mapper.OrganizerMapper;
+import com.afd.mate.domain.mapper.EventMapper;
+import com.afd.mate.domain.mapper.OrganizerMapper;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
+import reactor.core.publisher.Flux;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +27,8 @@ public class MyStepdefs {
 
     @Autowired
     private EventRepository repository;
+    @Autowired
+    private GetEventService getEventService;
 
     List<Guest> listeParticipants;
 
@@ -39,14 +45,6 @@ public class MyStepdefs {
     }
 
 
-//    @And("un Evenement{int} avec les informations suivantes existe")
-//    public void unEvenementAvecLesInformationsSuivantesExiste(int arg1, DataTable table) {
-//        //Event event1 = table.convert(Event.class, true);
-//        ModelMapper modelMapper = new ModelMapper();
-//        Event event1 = modelMapper.map(table, Event.class);
-//        System.out.println(event1.getDescription());
-//
-//    }
 
     @And("un Evenement{int} avec les informations suivantes existe")
     public void unEvenementAvecLesInformationsSuivantesExiste(int argo, DataTable table) {
@@ -123,6 +121,17 @@ public class MyStepdefs {
 
     @And("le Evenement{int} existe en base de donnee")
     public void leEvenementExisteEnBaseDeDonnee(int arg0) {
-       repository.findOneById(events.get(arg0).get);
+       repository.insert(events.get(arg0));
+    }
+
+    @When("la liste des Evenements est recuperee")
+    public void laListeDesEvenementsEstRecuperee() {
+        Flux<Event> eventList = getEventService.getAll();
+    }
+
+    @Then("une liste de Evenements est renvoyee")
+    public void uneListeDeEvenementsEstRenvoyee() {
+ //       assert
+        //      step verifier pour utiliser les flux
     }
 }

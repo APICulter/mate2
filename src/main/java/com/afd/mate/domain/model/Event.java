@@ -1,5 +1,7 @@
 package com.afd.mate.domain.model;
 
+import com.afd.mate.domain.enumeration.REACTION;
+import com.afd.mate.domain.enumeration.REGION;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +22,9 @@ public class Event {
     private int numberOfPlace;
     private String description;
     private String photo;
+    private List<Photo> photoList;
     private List<Organizer> organizerList;
     private List<Guest> guestList;
+    private List<REACTION> reactions;
+    private List<REGION> regions;
 }

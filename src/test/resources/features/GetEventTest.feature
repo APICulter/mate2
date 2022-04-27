@@ -13,12 +13,12 @@ Feature: Recuperer la liste des evenements
     And la liste1 de Organisateurs existe dans Evenement1
     And une liste2 vide de Participants existe
     And la liste2 de Participants existe dans Evenement1
-#    And une liste3 vide de Photos post event existe
-#    And la liste3 de Photos post event existe dans Evenement1
-#    And une liste4 vide de Reactions existe
-#    And la liste4 de Reactions existe dans Evenement1
-#    And une liste5 vide de Regions existe
-#    And la liste5 de Regions existe dans Evenement1
+    And une liste3 vide de Photos post event existe
+    And la liste3 de Photos post event existe dans Evenement1
+    And une liste4 vide de Reactions existe
+    And la liste4 de Reactions existe dans Evenement1
+    And une liste5 vide de Regions existe
+    And la liste5 de Regions existe dans Evenement1
 #    And le Evenement1 existe en base de donnee
 #    When la liste des evenements est recuperee
 #    Then une liste de Evenements est renvoyee

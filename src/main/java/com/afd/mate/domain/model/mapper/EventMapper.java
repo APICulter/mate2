@@ -26,7 +26,6 @@ public class EventMapper {
         result.setState(maps.get(0).get("stateEvenement"));
         result.setNumberOfPlace(parseIntOrNull(maps.get(0).get("nbOfPlacesEvenement")));
 
-
         result.setDescription(maps.get(0).get("descriptionEvenement"));
         result.setPhoto(maps.get(0).get("photoPreEventEvenement"));
 //        ObjectMapper objectMapper = new ObjectMapper();

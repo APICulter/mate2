@@ -2,6 +2,7 @@ package com.afd.mate.domain.Event.service;
 
 import com.afd.mate.domain.model.Event;
 import org.bson.types.ObjectId;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
@@ -16,18 +17,19 @@ public class GetEventService {
         this.repository = repository;
     }
 
-    public Mono<Event> getById(ObjectId id
-    ) {
-        System.out.println("La connexion se fait bien");
-        return repository.findOneById(id);
-    }
+//    public Mono<Event> getById(ObjectId id
+//    ) {
+//        System.out.println("La connexion se fait bien");
+//        return repository.findOneById(id);
+//    }
 
 
-    public Flux<Event> getAll() {
-      return repository.findAll();
-    }
+//    public Flux<Event> getAll() {
+//
+//      return repository.findAll(Sort.by(Sort.Direction.DESC, "title"));
+//    }
 
 
-    public Mono<Event> get(ObjectId objectId) {
-    }
+    //public Mono<Event> get(ObjectId objectId) {
+    //}
 }

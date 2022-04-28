@@ -22,9 +22,9 @@ Feature: Recuperer la liste des evenements
     And le Evenement1 existe en base de donnee
     When la liste des Evenements est recuperee
     Then une liste de Evenements est renvoyee
-#    And la liste de Evenements renvoyee contient un unique Evenement
-#    And le premier Evenement de la liste de Evenements renvoyee possede les memes informations que Evenement1
-#    And le premier Evenement de la liste de Evenements renvoyee possede un identifiant
+    And la liste de Evenements renvoyee contient un unique Evenement
+    And le premier Evenement de la liste de Evenements renvoyee possede les memes informations que Evenement1
+    And le premier Evenement de la liste de Evenements renvoyee possede un identifiant
 
     Examples:
       | valueTitleEvenement1  | valueStartDateEvenement1  | valueEndDateEvenement1  | valueLocationEvenement1 | valueCategoryEvenement1 | valueFlagEvenement1 | valueStateEvenement1  | valueNbOfPlacesEvenement1 | valueDescriptionEvenement1  | valuePhotoPreEventEvenement1  | valueLastNameOrganisateur1  | valueFirstNameOrganisateur1 | valueEmailOrganisateur1 |

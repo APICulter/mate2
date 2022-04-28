@@ -2,6 +2,10 @@ package com.afd.mate.domain.Event.service;
 
 import com.afd.mate.domain.model.Event;
 import org.bson.types.ObjectId;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
+import org.springframework.data.domain.Example;
+
+import org.springframework.data.domain.Sort;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -12,7 +16,7 @@ public interface EventRepository {
 
     Mono<Event> insert(Event event);
 
-    Mono<Event> findOneById(ObjectId id);
+ //   Mono<Event> findOneById(ObjectId id);
 
-    Flux<Event> findAll();
+    //Flux<Event> findAll(Sort sort);
 }

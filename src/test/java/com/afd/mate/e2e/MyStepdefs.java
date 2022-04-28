@@ -15,13 +15,19 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.codehaus.groovy.ast.ModuleNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import reactor.test.StepVerifier;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 
 public class MyStepdefs {
 
@@ -39,8 +45,10 @@ public class MyStepdefs {
     Map<Integer, List<Guest>> guestList= new HashMap<>();
     Map<Integer, List<REACTION>> reactionsList= new HashMap<>();
     Map<Integer, List<REGION>> regionList= new HashMap<>();
+    Flux<Event> eventList;
     @Given("une base de donnée ne contenant aucun Evenement existe")
     public void uneBaseDeDonnéeNeContenantAucunEvenementExiste() {
+
         repository.deleteAll();
     }
 
@@ -126,12 +134,32 @@ public class MyStepdefs {
 
     @When("la liste des Evenements est recuperee")
     public void laListeDesEvenementsEstRecuperee() {
-        Flux<Event> eventList = getEventService.getAll();
+//        eventList = getEventService.getAll();
     }
 
     @Then("une liste de Evenements est renvoyee")
     public void uneListeDeEvenementsEstRenvoyee() {
- //       assert
-        //      step verifier pour utiliser les flux
+
+        StepVerifier.create(eventList)
+                .expectNext(events.get(0))
+                .verifyComplete();
+    }
+
+    @And("la liste de Evenements renvoyee contient un unique Evenement")
+    public void laListeDeEvenementsRenvoyeeContientUnUniqueEvenement() {
+        long size = eventList.count().block().longValue();
+        assertEquals(size,1);
+
+    }
+
+    @And("le premier Evenement de la liste de Evenements renvoyee possede les memes informations que Evenement{int}")
+    public void lePremierEvenementDeLaListeDeEvenementsRenvoyeePossedeLesMemesInformationsQueEvenement(int arg0) {
+
+        assertThat(eventList.take(0).single().block()).isEqualTo(events.get(arg0));
+    }
+
+    @And("le premier Evenement de la liste de Evenements renvoyee possede un identifiant")
+    public void lePremierEvenementDeLaListeDeEvenementsRenvoyeePossedeUnIdentifiant() {
+        assertThat(eventList.take(0).single().block().getTitle());
     }
 }

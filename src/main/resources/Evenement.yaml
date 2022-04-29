@@ -1,0 +1,648 @@
+openapi: 3.0.1
+info:
+  title: Evenement
+  contact:
+    email: dfrances@afdtech.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: https://petstore.swagger.io/v2
+  - url: http://petstore.swagger.io/v2
+paths:
+  /events:
+    post:
+      summary: Create an event
+      description: Créer un événement
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventToCreateDTO'
+      responses:
+        '201':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventDTO'
+    get:
+      summary: Get events
+      description: Récupérer les événements
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListEventDTO'
+  /events/{id}:
+    get:
+      summary: Get event
+      description: Récupérer un événement
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventDTO'
+    put:
+      summary: Edit an event
+      description: Modifier un événement
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventDTO'
+    delete:
+      summary: Delete an event
+      description: Supprimer un événement
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: successful operation
+  /events/regions/{concernedRegion}:
+    get:
+      summary: Get events by region
+      description: Récupérer les événements d'une région
+      parameters:
+        - name: concernedRegion
+          in: path
+          description: Region concernée
+          required: true
+          schema:
+            $ref: '#/components/schemas/Region'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListEventDTO'
+  /events/{id}/regions:
+    put: 
+      summary: Edit a region
+      description: Modifier la région d'un événement
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Region'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventDTO'  
+  /events/states/{state}:
+    get:
+      summary: Get events by state
+      description: Récupérer les événements en fonction de l'état
+      parameters:
+        - name: state
+          in: path
+          description: état de l'événement
+          required: true
+          schema:
+            $ref: '#/components/schemas/State'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListEventDTO'
+  /events/flags/{flag}:
+    get:
+      summary: Get events by flag
+      description: Récupérer les événements en fonction de l'importance
+      parameters:
+        - name: flag
+          in: path
+          description: priorité de l'événement
+          required: true
+          schema:
+            $ref: '#/components/schemas/Flag'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListEventDTO'
+  /events/{id}/flags:
+    put:
+      summary: Edit flag of an event
+      description: Modifier l'importance d'un événement
+      parameters:
+        - name: id
+          in: path
+          description: priorité de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Flag'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flag'
+  /events/category/{category}:
+    get:
+      summary: Get events by category
+      description: Récupérer les événements en fonction de la categorie
+      parameters:
+        - name: category
+          in: path
+          description: categorie de le événement
+          required: true
+          schema:
+            $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListEventDTO'
+  /events/{id}/category:
+    put:
+      summary: Edit category
+      description: Modifier la catégorie d'un événement
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+  /events/{id}/attendees:
+    post:
+      summary: Register for an event
+      description: Affectation d'un participant à un événement
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventCollaboratorDTO'
+      responses:
+        '201':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventDTO'
+        #410
+        '405':
+          description: Action non autorisée
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessageDTO'
+  /events/{id}/attendees/{attendees}:
+    delete:
+      summary: deregistration of a attendee
+      description: Desinscription d'un participant
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: attendees
+          in: path
+          description: le participant
+          required: true
+          schema:
+              $ref: '#/components/schemas/EventCollaboratorDTO'
+      responses:
+        '204':
+          description: successful operation
+  /events/{id}/organizers:
+    post:
+      summary: Register for an event
+      description: Affectation d'un organisateur à un événement
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventCollaboratorDTO'
+      responses:
+        '201':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventDTO'
+  /events/{id}/organizers/{organizers}:
+    delete:
+      summary: Delete an organizer
+      description: Suppression d'un organisateur
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: organizers
+          in: path
+          description: le organisateur
+          required: true
+          schema:
+              $ref: '#/components/schemas/EventCollaboratorDTO'
+      responses:
+        '204':
+          description: successful operation
+  /events/{id}/photosPostEvent:
+    post:
+      summary: Add a photo to an event
+      description: Ajout d'une photo à un événement
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Photo'
+      responses:
+        '201':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventDTO'
+  /events/{id}/photosPostEvent/{idPhoto}:
+    get:
+      summary: Get event
+      description: Récupérer un événement
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: idPhoto
+          in: path
+          description: id de la photo
+          required: true
+          schema:
+            type: string
+            format: base64
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventDTO'
+    delete:
+      summary: Delete a photo from an event
+      description: Supprimer une photo d'un événement
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: idPhoto
+          in: path
+          description: id de la photo
+          required: true
+          schema:
+            type: string
+            format: base64
+      responses:
+        '204':
+          description: successful operation
+  /events/{id}/reactions/{reaction}:
+    post:
+      summary: Add a reaction to an event
+      description: Ajout d'une réaction à un événement
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: reaction
+          in: path
+          description: La reaction à l'événement
+          required: true
+          schema:
+            $ref: '#/components/schemas/Reaction'
+      responses:
+        '201':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventDTO'
+  /events/publicationState/{publicationState}:
+    get:
+      summary: Get events by publicationState
+      description: Récupérer les événements en fonction de son état d'approbation
+      parameters:
+        - name: publicationState
+          in: path
+          description: état d'approbation de l'événement
+          required: true
+          schema:
+            $ref: '#/components/schemas/PublicationState'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListEventDTO'
+  /events/{id}/publicationState:
+    put:
+      summary: Put PublicationState by Eventid
+      description: Modifier l'état d'approbation d'un événement
+      parameters:
+        - name: id
+          in: path
+          description: id de l'événement
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicationState'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationState'
+components:
+  schemas:
+    ErrorMessageDTO:
+      type: object
+      properties:
+        message :
+          type : string
+    EventToCreateDTO:
+      required:
+        - title
+        - startDate
+        - endDate
+        - location
+        - region
+        - category
+        - organizers
+        - attendees
+        - reactions
+        - description
+        - photoPreEvent
+        - photoPostEvent
+      type: object
+      properties:
+        title:
+          type: string
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        location:
+          type: string
+        region:
+          $ref: '#/components/schemas/Region'
+        category:
+          $ref: '#/components/schemas/Category'
+        organizers:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventCollaboratorDTO'
+        attendees:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventCollaboratorDTO'
+        reactions:
+          $ref: '#/components/schemas/Reactions'
+        description:
+          type: string
+          minLength: 3
+          maxLength: 1000
+        photoPreEvent:
+          $ref: '#/components/schemas/Photo'
+        photoPostEvent:
+          $ref: '#/components/schemas/PhotosPostEvent'
+    Region:
+      type: string
+      enum:
+        - GRANDOUEST
+        - GRANDEST
+        - FOREING
+        - ALL
+    Category:
+      type: string
+      enum:
+        - LINKERS
+        - BEE
+        - ESPORT
+    Feeling:
+      type: string
+      enum:
+        - LIKE
+        - CELEBRATE
+        - LOVE
+    Reaction:
+      type : object
+      properties:
+        feeling:
+          $ref: '#/components/schemas/Feeling'
+        collaborator:
+          $ref: '#/components/schemas/EventCollaboratorDTO'
+    Reactions:
+      type: array
+      items:
+        $ref: '#/components/schemas/Reaction'
+    Photo:
+      type: object
+      properties:
+        path:
+          type: string
+        id:
+          type: string
+          format: uuid
+    PhotosPostEvent:
+      type: array
+      items:
+        $ref: '#/components/schemas/Photo'
+    Flag:
+      type: string
+      enum:
+        - STAR
+        - NONE
+    State:
+      type: string
+      enum:
+        - TODO
+        - INPROGRESS
+        - FINISHED
+        - DELETED
+    PublicationState:
+      type: string
+      enum:
+        - DRAFT
+        - TOVALIDATE
+        - VALIDATED
+        - RETURNDRAFT
+    EventCollaboratorDTO:
+      type: object
+      properties:
+        lastName:
+          type: string
+        firstName:
+          type: string
+        email:
+          type: string
+    EventDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        location:
+          type: string
+        region:
+          $ref: '#/components/schemas/Region'
+        category:
+          $ref: '#/components/schemas/Category'
+        flag:
+          $ref: '#/components/schemas/Flag'
+        state:
+          $ref: '#/components/schemas/State'
+        pulbicationState:
+          $ref: '#/components/schemas/PublicationState'
+        organizers:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventCollaboratorDTO'
+        attendees:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventCollaboratorDTO'
+        nbOfPlaces:
+          type: integer
+          format: int64
+        reactions:
+            $ref: '#/components/schemas/Reactions'
+        description:
+          type: string
+          minLength: 3
+          maxLength: 1000
+        photoPreEvent:
+          $ref: '#/components/schemas/Photo'
+        photoPostEvent:
+          $ref: '#/components/schemas/PhotosPostEvent'
+    ListEventDTO:
+      type: array
+      items:
+        $ref: '#/components/schemas/EventDTO'

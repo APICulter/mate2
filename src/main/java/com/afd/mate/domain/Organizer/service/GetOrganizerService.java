@@ -1,7 +1,6 @@
 package com.afd.mate.domain.Organizer.service;
 
-import com.afd.mate.domain.model.Event;
-import com.afd.mate.domain.model.Organizer;
+import com.afd.mate.domain.model.temp.Organizer;
 import org.bson.types.ObjectId;
 import reactor.core.publisher.Mono;
 

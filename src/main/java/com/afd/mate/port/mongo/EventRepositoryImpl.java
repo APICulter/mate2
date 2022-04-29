@@ -18,8 +18,7 @@ public class EventRepositoryImpl  implements EventRepository {
     private final ReactiveEventMongoRepository reactiveEventMongoRepository;
     @Override
     public Mono<Void> deleteAll() {
-        reactiveEventMongoRepository.deleteAll();
-        return Mono.empty();
+        return reactiveEventMongoRepository.deleteAll();
     }
 
     @Override

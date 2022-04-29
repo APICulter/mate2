@@ -1,6 +1,6 @@
 package com.afd.mate.port.mongo;
 
-import com.afd.mate.domain.model.Organizer;
+import com.afd.mate.domain.model.temp.Organizer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

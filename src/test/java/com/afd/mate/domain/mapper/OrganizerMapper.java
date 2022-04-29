@@ -1,6 +1,6 @@
 package com.afd.mate.domain.mapper;
 
-import com.afd.mate.domain.model.Organizer;
+import com.afd.mate.domain.model.temp.Organizer;
 
 import java.util.List;
 import java.util.Map;

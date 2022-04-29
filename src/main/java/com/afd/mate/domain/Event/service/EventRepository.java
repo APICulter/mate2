@@ -18,7 +18,5 @@ public interface EventRepository {
 
     Flux<Event> findAll();
 
-    //   Mono<Event> findOneById(ObjectId id);
 
-    //Flux<Event> findAll(Sort sort);
 }

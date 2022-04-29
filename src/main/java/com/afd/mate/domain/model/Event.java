@@ -2,6 +2,8 @@ package com.afd.mate.domain.model;
 
 import com.afd.mate.domain.enumeration.REACTION;
 import com.afd.mate.domain.enumeration.REGION;
+import com.afd.mate.domain.model.temp.Guest;
+import com.afd.mate.domain.model.temp.Organizer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

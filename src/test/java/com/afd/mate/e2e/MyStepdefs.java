@@ -129,12 +129,13 @@ public class MyStepdefs {
 
     @And("le Evenement{int} existe en base de donnee")
     public void leEvenementExisteEnBaseDeDonnee(int arg0) {
-       repository.insert(events.get(arg0));
+       Mono<Event> resultInsert = repository.insert(events.get(arg0));
+        System.out.println(resultInsert.block().getTitle());
     }
 
     @When("la liste des Evenements est recuperee")
     public void laListeDesEvenementsEstRecuperee() {
-//        eventList = getEventService.getAll();
+        eventList = getEventService.getAll();
     }
 
     @Then("une liste de Evenements est renvoyee")
@@ -143,12 +144,15 @@ public class MyStepdefs {
         StepVerifier.create(eventList)
                 .expectNext(events.get(0))
                 .verifyComplete();
+        StepVerifier.
     }
 
     @And("la liste de Evenements renvoyee contient un unique Evenement")
     public void laListeDeEvenementsRenvoyeeContientUnUniqueEvenement() {
         long size = eventList.count().block().longValue();
         assertEquals(size,1);
+//        Mono<Long> eventCount = eventList.count();
+//        assertEquals(eventCount.block(), 1);
 
     }
 
@@ -160,6 +164,6 @@ public class MyStepdefs {
 
     @And("le premier Evenement de la liste de Evenements renvoyee possede un identifiant")
     public void lePremierEvenementDeLaListeDeEvenementsRenvoyeePossedeUnIdentifiant() {
-        assertThat(eventList.take(0).single().block().getTitle());
+        assertThat(eventList.take(0).single().block().getId()!= null);
     }
 }

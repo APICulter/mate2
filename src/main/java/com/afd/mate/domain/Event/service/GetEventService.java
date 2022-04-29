@@ -17,6 +17,10 @@ public class GetEventService {
         this.repository = repository;
     }
 
+    public Flux<Event> getAll() {
+        return repository.findAll();
+    }
+
 //    public Mono<Event> getById(ObjectId id
 //    ) {
 //        System.out.println("La connexion se fait bien");

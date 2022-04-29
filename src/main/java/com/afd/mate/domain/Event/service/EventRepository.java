@@ -16,7 +16,9 @@ public interface EventRepository {
 
     Mono<Event> insert(Event event);
 
- //   Mono<Event> findOneById(ObjectId id);
+    Flux<Event> findAll();
+
+    //   Mono<Event> findOneById(ObjectId id);
 
     //Flux<Event> findAll(Sort sort);
 }

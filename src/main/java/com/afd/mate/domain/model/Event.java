@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Event {
+    private String id;
     private String title;
     private String startDate;
     private String endDate;

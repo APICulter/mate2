@@ -1,5 +1,5 @@
 package com.afd.mate.domain.enumeration;
 
 public enum STATE {
-    INPROGRESS,DONE
+    INPROGRESS,TODO
 }

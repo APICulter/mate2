@@ -139,17 +139,7 @@ public class MyStepdefs {
 
     @Then("une liste de Evenements est renvoyee")
     public void uneListeDeEvenementsEstRenvoyee() {
-        long size = eventList.count().block().longValue();
-        System.out.println(size);
-        assertTrue(size != 0);
-//        StepVerifier.create(eventList)
-//                .expectNextMatches(eventList instanceof Flux<?>)
-//                .verifyComplete();
-
-//        assertTrue();
-
-
-
+    //vérifier que le type de l'objet renvoyé est bien "Liste de Event"
     }
 
     @And("la liste de Evenements renvoyee contient un unique Evenement")
@@ -157,9 +147,6 @@ public class MyStepdefs {
         long size = eventList.count().block().longValue();
         System.out.println(size);
         assertEquals(size,1);
-//        Mono<Long> eventCount = eventList.count();
-//        assertEquals(eventCount.block(), 1);
-
     }
 
     @And("le premier Evenement de la liste de Evenements renvoyee possede les memes informations que Evenement{int}")

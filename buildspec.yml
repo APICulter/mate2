@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime_versions:
+      java: corretto11
+ pre_build:
+   commands:
+     - echo nothing for pre build
+ build:
+   commands:
+     - echo build with maven
+     - mvn clean install
+ post_build:
+   commands:
+     - echo build completed
+ artifacts:
+   files:
+     - target/mate.jar

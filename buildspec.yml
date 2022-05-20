@@ -16,4 +16,4 @@ phases:
             - echo build completed
     artifacts:
         files:
-        - target/mate.jar
+            - target/mate.jar

@@ -6,14 +6,14 @@ phases:
       java: corretto11
  pre_build:
    commands:
-     - echo nothing for pre build
+   - echo nothing for pre build
  build:
    commands:
-     - echo build with maven
-     - mvn clean install
+   - echo build with maven
+   - mvn clean install
  post_build:
    commands:
-     - echo build completed
+   - echo build completed
  artifacts:
    files:
-     - target/mate.jar
+   - target/mate.jar
